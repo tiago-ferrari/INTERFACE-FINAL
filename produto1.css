@@ -1,0 +1,292 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column; /* Adiciona esta linha para permitir que o conteúdo do body se alinhe verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+  }
+  
+  header {
+    width: 100%;
+    background-color: #fff; /* Você pode adicionar uma cor de fundo ao cabeçalho se desejar */
+    
+    text-align: center; /* Centraliza o texto dentro do cabeçalho */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao cabeçalho */
+  }
+
+  header ul{
+    display: flex;
+    list-style-type: none;
+  }
+
+  header ul li{
+    margin-right: 20px;
+  }
+  
+  header nav ul li a {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  header nav ul li a:hover {
+    color: var(--main-color);
+  }
+
+  :root {
+    --main-color: #f60f20;
+    --secondary-color: #1b206e;
+    --highlight-color: #c4a2fc;
+    --text-color: #111;
+  }
+
+  #increase-font{
+    position: fixed;
+    top: 12px;
+    right: 80px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #decrease-font {
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #increase-font:hover,
+  #decrease-font:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px;
+  }
+  
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px; /* Altura fixa para os produtos */
+  }
+  
+  .product img {
+    width: 100%;
+    border-radius: 8px;
+    max-height: 150px; /* Altura máxima para a imagem */
+    object-fit: cover; /* Evita distorções na imagem */
+  }
+  
+  .product h3 {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .product p {
+    margin: 5px 0;
+    color: #777;
+  }
+  
+  .add-to-cart {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #0056b3;
+  }
+  
+  .cart {
+    background-color: #fff;
+    padding: 20px;
+    margin-left: 20px;
+    width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart h2 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 500px; /* Altura máxima para a lista */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical quando necessário */
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-total {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .cart-buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  #clear-cart {
+    background-color: #dc3545; /* Vermelho */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Ocupar toda a largura */
+  }
+  
+  #clear-cart:hover {
+    background-color: #c82333; /* Tom mais escuro ao passar o mouse */
+  }
+
+  /* Estilo para o botão de remover item */
+.cart-item button.remove-from-cart {
+    background-color: #ff4d4d; /* Cor de fundo vermelha */
+    color: white; /* Cor do texto branca */
+    border: none; /* Remove bordas padrão */
+    border-radius: 5px; /* Adiciona borda arredondada */
+    padding: 5px 10px; /* Espaçamento interno */
+    cursor: pointer; /* Altera o cursor para pointer */
+    transition: background-color 0.3s; /* Transição suave para mudança de cor */
+  }
+  
+  /* Estilo para o botão de remover item ao passar o mouse */
+  .cart-item button.remove-from-cart:hover {
+    background-color: #ff1a1a; /* Cor de fundo mais escura ao passar o mouse */
+  }
+  
+  ol{
+    display: flex;
+    list-style-type: none;
+  }
+
+  ol li{
+    font-size: 24px;
+    padding-left: 10px;
+  }
+  
+  /* Estilos para o Breadcrumbs */
+ol {
+    display: flex;
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  ol li {
+    font-size: 24px; /* Tamanho da fonte dos itens do breadcrumbs */
+    padding-left: 10px; /* Espaçamento à esquerda de cada item */
+  }
+  
+  ol li::before {
+    content: '>'; /* Adiciona uma barra como separador */
+    padding-right: 10px; /* Espaçamento à direita do separador */
+    color: #777; /* Cor do separador */
+  }
+  
+  ol li:first-child::before {
+    content: ''; /* Remove o separador antes do primeiro item */
+  }
+
+  ol li a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: inherit; /* Herda a cor definida para os itens */
+  }
+
+  /* Estilo para a seção de descrição do produto */
+.product-description {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .product-info p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  
+  
+  div ul {
+    list-style-type: none;
+    font-size: 24px; /* Tamanho da fonte */
+    margin: 10px 0; /* Margem superior e inferior */
+    padding: 0; /* Remova o preenchimento padrão */
+  }
+  
+  div ul li {
+    margin-bottom: 10px; /* Espaçamento inferior entre itens */
+    line-height: 1.5; /* Altura da linha para melhor legibilidade */
+  }
+  
+  /* Estilo para links dentro dos itens da lista */
+  div li a {
+    text-decoration: none; /* Remova o sublinhado dos links */
+    color: #007bff; /* Cor dos links */
+    transition: color 0.3s ease; /* Transição suave de cor */
+  }
+  
+  /* Efeito de hover nos links */
+  li a:hover {
+    color: #0056b3; /* Cor do link ao passar o mouse */
+  }
+  
+  img{
+    width: 300px; /* Largura fixa desejada */
+    height: auto; /* Altura ajustada automaticamente para manter a proporção */
+  }

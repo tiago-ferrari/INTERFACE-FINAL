@@ -1,0 +1,67 @@
+<section id="contact">
+    <div class="title">
+      <h2>Entre em contato</h2>
+      <p>
+        Para mais informações sobre nossos serviços de energias renováveis
+        ou para agendar uma consulta, entre em contato conosco hoje mesmo. 
+        Estamos aqui para ajudar!
+      </p>
+    </div>
+    <div class="contact">
+      <div class="contact-form">
+        <form>
+          <div class="row">
+            <div class="input50">
+              <input type="text" placeholder="Nome" />
+            </div>
+            <div class="input50">
+              <input type="text" placeholder="Sobrenome" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input50">
+              <input type="text" placeholder="Email" />
+            </div>
+            <div class="input50">
+              <input type="text" placeholder="Assunto" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input100">
+              <textarea placeholder="Mensagem"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input100">
+              <input type="submit" id="enviarBtn" value="Enviar" />
+            </div>
+          </div>
+          <div id="mensagem"></div>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="info-box">
+          <img src="https://github.com/bradtraversy/creative-agency-website/blob/master/images/address.png?raw=true" class="contact-icon" alt="" />
+          <div class="details">
+            <h4>Endereço</h4>
+            <p>123 R. Dimitri Silva, São Paulo, SP</p>
+          </div>
+        </div>
+        <div class="info-box">
+          <img src="https://github.com/bradtraversy/creative-agency-website/blob/master/images/email.png?raw=true" class="contact-icon" alt="" />
+          <div class="details">
+            <h4>Email</h4>
+            <a href="mailto:anyone@example.com">energias_renova@gmail.com</a>
+          </div>
+        </div>
+        <div class="info-box">
+          <img src="https://github.com/bradtraversy/creative-agency-website/blob/master/images/call.png?raw=true" class="contact-icon" alt="" />
+          <div class="details">
+            <h4>Ligue para</h4>
+            <a href="tel:+19785555555">+55 11 99779-9779</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

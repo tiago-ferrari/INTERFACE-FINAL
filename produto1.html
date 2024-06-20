@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monocristalino</title>
+  <link rel="stylesheet" href="produto1.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul class="cabeçalho">
+        <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#services">Vantagens</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li><a href="loja.html">Loja</a></li> <!-- Link para a página da loja -->
+      </ul>
+    </nav>
+    <button id="increase-font">A+</button>
+    <button id="decrease-font">A-</button>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+      <li class="breadcrumb-item"><a href="loja.html">Loja</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Monocristalino</li>
+    </ol>
+  </nav>
+
+  <div class="container">
+    <div class="product-detail">
+      <img src="https://www.neosolar.com.br/media/catalog/product/p/a/painel_solar_osda_340wp_3_2.jpg" alt="Produto Monocristalino">
+      <h3>Monocristalino</h3>
+      <p>R$ 160,00</p>
+      <button class="add-to-cart">Adicionar ao Carrinho</button>
+      <div>
+      <ul id="descricao">
+        <li>Preço: R$ 160,00</li>
+        <li>Potência nominal: 150W</li>
+        <li>Tensão máxima/pico (Vmp): 18V</li>
+        <li>Corrente máxima: 9.04A</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+
+  <script src="produto1.js"></script>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const headers = document.querySelectorAll('h1, h2, h3, h4, p, a, li');
+  const increaseFontButton = document.getElementById('increase-font');
+  const decreaseFontButton = document.getElementById('decrease-font');
+  
+  let currentFontSize = 16; // Tamanho inicial da fonte em pixels
+
+  // Função para atualizar o tamanho da fonte dos headers
+  function updateFontSize(delta) {
+    headers.forEach(header => {
+      let fontSize = window.getComputedStyle(header, null).getPropertyValue('font-size');
+      let currentSize = parseFloat(fontSize);
+      header.style.fontSize = (currentSize + delta) + 'px';
+    });
+  }
+  
+  // Aumenta o tamanho da fonte em 2px quando o botão A+ é clicado
+  increaseFontButton.addEventListener('click', function() {
+    updateFontSize(2);
+  });
+  
+  // Diminui o tamanho da fonte em 2px quando o botão A- é clicado
+  decreaseFontButton.addEventListener('click', function() {
+    updateFontSize(-2);
+  });
+});
+
+  </script>
+
+</html>

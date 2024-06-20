@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energia SolarTech</title>
+    <link rel="stylesheet" href="styles_orcamento.css">
+</head>
+<body>
+    
+    <!-- Banner -->
+    <nav>
+        <ul class="cabeçalho">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#services">Vantagens</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li><a href="loja.html">Loja</a></li> <!-- Link para a página da loja -->
+        </ul>
+        
+      </nav>
+      <button id="increase-font">A+</button>
+    <button id="decrease-font">A-</button>
+
+    <header class="banner">
+    </header>
+
+<!-- Formulário -->
+<section class="form-section">
+    <h2>Vamos começar a simulação <br>
+        da sua economia de Energia Solar!</h2>
+
+    <p style="color: #1b206e;">Prencha as informações da cada etapa</p>
+        <br>
+        <hr style="margin-bottom: 30px;">
+
+    <form id="multiStepForm">
+        <!-- Etapa 1 -->
+        <div class="form-step" id="step1">
+            <p style="display: inline;">Selecione sua cidade:
+                <div class="help-button">?
+                    <span class="tooltip">Selecione primeiro o Estado, depois a cidade</span>
+                </div>
+            </p>
+            <br>
+            <label for="state">Estado:</label>
+            <select id="state" name="state" required onchange="populateCities()">
+                <option value="">Selecione o estado</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="SC">Santa Catarina</option>
+
+            </select>
+            <label for="city">Cidade:</label>
+            <select id="city" name="city" required>
+                <option value="">Selecione a cidade</option>
+                <!-- Opções preenchidas pelo JavaScript -->
+            </select>
+            <br>
+            <button type="button" onclick="nextStep(2)">PRÓXIMA ETAPA</button>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="form-step" id="step2" style="display: none;">
+            <p>Qual segmento você deseja calcular?</p> 
+            <label>
+                <input type="radio" name="group1" value="option1" required> Residencial
+            </label>
+            <label>
+                <input type="radio" name="group1" value="option2"> Comercial
+            </label>
+            <label>
+                <input type="radio" name="group1" value="option3"> Industria
+            </label>
+            <label>
+                <input type="radio" name="group1" value="option3"> Rural
+            </label>
+            <br><br>
+            <p>Selecione o tipo de instalação:</p>
+            <label>
+                <input type="radio" name="group2" value="option1" required> Monofásico
+            </label>
+            <label>
+                <input type="radio" name="group2" value="option2"> Bifásico
+            </label>
+            <label>
+                <input type="radio" name="group2" value="option3"> Trifásico
+            </label>
+            
+            <br><br>
+            <button type="button" onclick="prevStep(1)">VOLTAR</button>
+            <button type="button" onclick="nextStep(3)">PRÓXIMA ETAPA</button>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="form-step" id="step3" style="display: none;">
+            <label for="amount">Digite seu gasto mensal médio: R$</label>
+            <input type="text" id="amount" name="amount" required placeholder="Ex: 999,99">
+            <br>
+            <button type="button" onclick="prevStep(2)">VOLTAR</button>
+            <button type="button" onclick="nextStep(4)">PRÓXIMA ETAPA</button>
+        </div>
+        <!-- Etapa 4 -->
+        <div class="form-step" id="step4" style="display: none;">
+            <p>Informações pessoais</p>
+            <br>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Ex: Nome Sobrenome">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required placeholder="Ex: exemplo@gmail.com">
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" required placeholder="Ex: 35339999">
+            <div>
+
+            <label for="date">Data para inicio do projeto:</label>
+            <input type="date" id="date" name="date" required>
+
+            <div class="help-button">?
+                <span class="tooltip">Por padrão, recomendamos e realizamos o inicio do projeto em aproximandamente 20 dias a partir da solicitação, mas fique a vontade para escolher a data que desejar!</span>
+            </div>
+
+            </div>
+            <br>
+            <button type="button" onclick="prevStep(3)">VOLTAR</button>
+            <button type="submit">ENVIAR</button>
+
+            <br><br>
+            <p>*Um relatório será enviado para seu email com a simulação de instalação e economia para o seu caso!</p>
+        </div>
+    </form>
+    <div class="step-indicators">
+        <div class="step-indicator" id="indicator1">1</div>
+        <div class="step-indicator" id="indicator2">2</div>
+        <div class="step-indicator" id="indicator3">3</div>
+        <div class="step-indicator" id="indicator4">4</div>
+    </div>
+</section>
+
+
+<!-- Comentários de Clientes -->
+<section class="comments-section">
+    <h2>O que nossos clientes dizem</h2>
+    <br>
+    <div class="comment-container">
+        <!-- Comentário 1 -->
+        <div class="comment">
+            <div class="comment-info">
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-sistema.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Sistema: 40 módulos de 345Wp</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-local.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Localização: Joinville-SC</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-potencia.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Potência: 13,80 kWp</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-economia.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Economia anual: R$ 7.500,00</p>
+                </div>
+            </div>
+            <p><strong style="color: #1b206e;">João Silva:</strong> "Eles entregaram um serviço de alta qualidade dentro do prazo combinado e a agilidade na instalação. Fiquei impressionado com os equipamentos de alta tecnologia da WEG que foram utilizados. Além disso, desde a instalação, tenho notado uma redução significativa na minha conta de luz. Recomendo a Save On a todos que buscam eficiência energética e economia."</p>
+        </div>
+        
+        <!-- Comentário 2 -->
+        <div class="comment">
+            <div class="comment-info">
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-sistema.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Sistema: 502 módulos de 545Wp</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-local.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Localização: Ascurra-SC</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-potencia.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Potência: 227,59 kWp</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-economia.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Economia anual: R$ 197.000,00</p>
+                </div>
+            </div>
+            <p><strong style="color: #1b206e;">Maria Souza:</strong> "Estou muito satisfeito com o serviço prestado pela empresa. Eles fizeram uma avaliação minuciosa das minhas necessidades e ofereceram a melhor solução. A entrega foi feita de forma correta e dentro do prazo estabelecido. Estou contente com os resultados obtidos e com a economia significativa na minha conta de energia. Recomendo a Save On a todos que desejam uma solução personalizada e eficiente para redução de consumo de energia."</p>
+        </div>
+
+        <!-- Comentário 3 -->
+        <div class="comment">
+            <div class="comment-info">
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-sistema.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Sistema: 58 módulos de 405Wp</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-local.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Localização: Joinville-SC</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-potencia.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Potência: 23,49 kWp</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://www.saveonenergia.com.br/calculadorasolar/themes/default/assets/images/icons/icon-economia.svg" width="30" height="30" loading="lazy" alt="Sistema">
+                    <p>Valor Economizado: R$ 16.600,00</p>
+                </div>
+            </div>
+            <p><strong style="color: #1b206e;">Carlos Pereira:</strong> "Após buscar diversas opções, encontrei na Save On a melhor solução para as necessidades da minha família. A equipe veio até minha casa, analisou nossas necessidades e apresentou um projeto personalizado. Durante o período de instalação, a equipe foi extremamente ágil e eficiente, garantindo que tudo ficasse pronto rapidamente."</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Seção de Divs -->
+    <section class="div-section">
+        <div class="service-box">
+            <p>Mais de</p>
+            <h3 style="color: #1b206e;">8</h3>
+            <p>Anos no mercado de energia</p>
+        </div>
+        <div class="service-box">
+            <p>Mais de</p>
+            <h3 style="color: #1b206e;">600</h3>
+            <p>Projetos entregues</p>
+        </div>
+        <div class="service-box">
+            <p>Mais de</p>
+            <h3 style="color: #1b206e;">30K</h3>
+            <p>Projetos entregues</p>
+        </div>
+        <div class="service-box">
+            <p>Mais de</p>
+            <h3 style="color: #1b206e;">11M</h3>
+            <p>KWh de energia gerada</p>
+        </div>
+        <div class="service-box">
+            <p>Mais de</p>
+            <h3 style="color: #1b206e;">1000</h3>
+            <p>Casas com energia gerada</p>
+        </div>
+        <div class="service-box">
+            <p>Mais de</p>
+            <h3 style="color: #1b206e;">560</h3>
+            <p>Toneladas de CO2 não emitidos</p>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="script_form.js"></script>
+ 
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const headers = document.querySelectorAll('h1, h2, h3, h4, p');
+  const increaseFontButton = document.getElementById('increase-font');
+  const decreaseFontButton = document.getElementById('decrease-font');
+  
+  let currentFontSize = 16; // Tamanho inicial da fonte em pixels
+
+  // Função para atualizar o tamanho da fonte dos headers
+  function updateFontSize(delta) {
+    headers.forEach(header => {
+      let fontSize = window.getComputedStyle(header, null).getPropertyValue('font-size');
+      let currentSize = parseFloat(fontSize);
+      header.style.fontSize = (currentSize + delta) + 'px';
+    });
+  }
+  
+  // Aumenta o tamanho da fonte em 2px quando o botão A+ é clicado
+  increaseFontButton.addEventListener('click', function() {
+    updateFontSize(2);
+  });
+  
+  // Diminui o tamanho da fonte em 2px quando o botão A- é clicado
+  decreaseFontButton.addEventListener('click', function() {
+    updateFontSize(-2);
+  });
+});
+
+  </script>
+</html>

@@ -1,0 +1,13 @@
+/* styles.css */
+h2 {
+    font-size: 2rem; /* Tamanho inicial do h2 */
+    color: #333;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  

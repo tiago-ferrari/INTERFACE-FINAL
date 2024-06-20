@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos e Carrinho de Compras</title>
+  <link rel="stylesheet" href="loja.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+          <ul class="cabeçalho">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#services">Vantagens</a></li>
+            <li><a href="#contact">Contato</a></li>
+            <li><a href="loja.html">Loja</a></li> <!-- Link para a página da loja -->
+            <!-- carrinho 
+            <li>
+              <a href="carrinho.html" class="carrinho">
+                 <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Ícone de Carrinho de Compras">
+              </a>
+            </li>
+            -->
+  
+          </ul>
+        </nav>
+        <button id="increase-font">A+</button>
+        <button id="decrease-font">A-</button>
+      </header>
+
+      <!-- Breadcrumbs -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+      <li class="breadcrumb-item"><a href="loja.html">Loja</a></li>
+    </ol>
+  </nav>
+
+  <div class="container">
+    <!-- Produtos -->
+    <div class="products">
+      <div class="product">
+        <a href="produto1.html">
+        <img src="https://www.neosolar.com.br/media/catalog/product/p/a/painel_solar_osda_340wp_3_2.jpg" alt="Produto 1">
+        </a>
+        <h3>Monocristalino</h3>
+        <p>R$ 160,00</p>
+        <button class="add-to-cart">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product">
+        <a href="index.html">
+        <img src="https://blog.solfacil.com.br/wp-content/uploads/2022/06/placa-solar.png-1.webp" alt="Produto 2">
+        </a>
+        <h3>Cristalino Policristalino</h3>
+        <p>R$ 470,00</p>
+        <button class="add-to-cart">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product">
+        <a href="index.html">
+        <img src="https://cdn.awsli.com.br/2500x2500/816/816887/produto/138732990/b6e3b5e5ee.jpg" alt="Produto 3">
+        </a>
+        <h3>Células Solares Orgânicas (OPV)</h3>
+        <p>R$ 279,99</p>
+        <button class="add-to-cart">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product">
+        <a href="index.html">
+        <img src="https://images.tcdn.com.br/img/img_prod/655927/placa_solar_30w_policristalino_resun_rsm030p_375_1_084fd791e32d1e1b2344ed41dc4cdf35.jpg" alt="Produto 4">
+    </a>
+        <h3>Cristalino de Filme Fino</h3>
+        <p>R$ 325,00</p>
+        <button class="add-to-cart">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product">
+        <a href="index.html">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_767346-MLB54861002163_042023-O.webp" alt="Produto 5">
+    </a>
+        <h3>Concentradores Solares</h3>
+        <p>R$ 1550,00</p>
+        <button class="add-to-cart">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product">
+        <a href="index.html">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_607149-MLB32648575731_102019-O.webp" alt="Produto 6">
+    </a>
+        <h3>Telha Solar</h3>
+        <p>R$ 210,00</p>
+        <button class="add-to-cart">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+
+    <!-- Carrinho de Compras -->
+    <aside class="cart">
+      <h2>Carrinho de Compras</h2>
+      <ul class="cart-items">
+        <!-- Itens do Carrinho serão adicionados dinamicamente pelo JavaScript -->
+      </ul>
+      <div class="cart-total">
+        <strong>Total:</strong> <span id="cart-total">R$ 0,00</span>
+      </div>
+      <button id="clear-cart">Limpar Carrinho</button>
+    </aside>
+  </div>
+
+  <script src="loja.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const headers = document.querySelectorAll('h1, h2, h3, h4, p');
+  const increaseFontButton = document.getElementById('increase-font');
+  const decreaseFontButton = document.getElementById('decrease-font');
+  
+  let currentFontSize = 16; // Tamanho inicial da fonte em pixels
+
+  // Função para atualizar o tamanho da fonte dos headers
+  function updateFontSize(delta) {
+    headers.forEach(header => {
+      let fontSize = window.getComputedStyle(header, null).getPropertyValue('font-size');
+      let currentSize = parseFloat(fontSize);
+      header.style.fontSize = (currentSize + delta) + 'px';
+    });
+  }
+  
+  // Aumenta o tamanho da fonte em 2px quando o botão A+ é clicado
+  increaseFontButton.addEventListener('click', function() {
+    updateFontSize(2);
+  });
+  
+  // Diminui o tamanho da fonte em 2px quando o botão A- é clicado
+  decreaseFontButton.addEventListener('click', function() {
+    updateFontSize(-2);
+  });
+});
+
+  </script>
+
+</body>
+</html>
